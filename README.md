@@ -19,5 +19,12 @@
 - в консьюмере (воркер) реализована валидация денежных средств (дабы баланс не ушел в минус)
 - 
 
-# Команда создания топика 
+# Запуск
+## Запуск брокера:
+- MY_IP={YOUR_IP} docker-compose -f docker-compose-kafka.yml up
+## Создание бд:
+- make postgres
+- make create_db
+## Команда создания топика:
 - docker run --net=host --rm confluentinc/cp-kafka:5.0.0 kafka-topics --create --topic transactions-queue --partitions 4 --replication-factor 2 --if-not-exists --zookeeper localhost:32181
+## Также необходимо запустить продьюсера и консьюмера
